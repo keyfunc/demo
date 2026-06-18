@@ -12,17 +12,15 @@ services:
   
   redis: # redis 容器
     image: redis:8.6.4-alpine
-    container_name: server_redis
+    container_name: server-redis
     restart: always
-    environment:
-      REDIS_PASSWORD: ${REDIS_PASSWORD}
     command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
     volumes:
       - redis_data:/data
 
   postgres: # postgres 容器
     image: postgres:15.17-alpine3.22
-    container_name: server_postgres
+    container_name: server-postgres
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
