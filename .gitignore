@@ -1,0 +1,5 @@
+# macOS系统生成的隐藏文件
+.DS_Store 
+
+# 环境变量配置文件隐藏
+.env.local
