@@ -15,6 +15,8 @@ services:
     container_name: server-redis
     restart: always
     command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    ports:
+      - "6379:6379" # 宿主机端口映射到容器内
     volumes:
       - redis_data:/data
 
