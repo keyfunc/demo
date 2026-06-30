@@ -1,6 +1,7 @@
 package app
 
 import (
+	"mall/internal/domain/auth"
 	"mall/internal/domain/todo"
 	"net/http"
 )
@@ -9,6 +10,13 @@ import (
 func NewRoutes(app *App) {
 	// 【todo】模块
 	todo.NewRoutes(&todo.TodoDeps{
+		Cfg:    app.Config,
+		Logger: app.Logger,
+		DB:     app.DB,
+		Mux:    app.Mux,
+	})
+	// 【auth】模块
+	auth.NewRoutes(&auth.AuthDeps{
 		Cfg:    app.Config,
 		Logger: app.Logger,
 		DB:     app.DB,
